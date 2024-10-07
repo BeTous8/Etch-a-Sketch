@@ -29,11 +29,22 @@ body {
     background-color: aquamarine;
 }
 
-.btn {
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    /* margin-bottom: 30px; */
+    /* width: 30px; */
+
+}
+
+.btn, .reset {
     display: block;
-    margin: auto;
+    /* margin: auto; */
     background-color: rgb(250, 236, 157);
     width: 100px;
     height: 30px;
-    margin-bottom: 50px;
+    margin: 20px 0;
+    font-weight: 700;
+    border-radius: 10px;
 }

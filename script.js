@@ -12,7 +12,21 @@ document.addEventListener('mouseup', () => {
 })
 
 
+function colorChange() {
+    const letter = '0123456789ABCDEF';
+    let color = '#'
+    for (i = 0; i < 6; i++) {
+        color += letter[Math.floor(Math.random() * 16)]
+    }
+    return color;
+}
+
+
 const btn = document.querySelector('.btn');
+const reset = document.querySelector('.reset');
+
+
+
 btn.addEventListener('click', () => {
     container.replaceChildren();
     let palletSize = +prompt("enter the size of the pallet: ");
@@ -36,16 +50,29 @@ btn.addEventListener('click', () => {
 
         box.addEventListener('mouseover', () => {
             if (isDrawing) {
-                box.style.backgroundColor = `white`;
+                box.style.backgroundColor = colorChange();
+                
             }
             
         });
         box.addEventListener('mousedown', () => {
             box.style.backgroundColor = 'white';
         });
+
+        reset.addEventListener('click', () => {
+            for (let i = 0; i < totalBoxes; i++) {
+                if (box.style.backgroundColor !== 'black') {
+                    box.style.backgroundColor = 'black';
+                }
+            }
+        });    
         
     }
-})
+
+   
+});
+
+
 
 
 
