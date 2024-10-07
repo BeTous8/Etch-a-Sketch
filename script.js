@@ -21,9 +21,17 @@ function colorChange() {
     return color;
 }
 
+function reset(totalBoxes, box) {
+    for (let i = 0; i < totalBoxes; i++) {
+        if (box.style.backgroundColor !== 'black') {
+            box.style.backgroundColor = 'black';
+        }
+    }
+}
+
 
 const btn = document.querySelector('.btn');
-const reset = document.querySelector('.reset');
+const resetBtn = document.querySelector('.reset');
 
 
 
@@ -31,7 +39,7 @@ btn.addEventListener('click', () => {
     container.replaceChildren();
     let palletSize = +prompt("enter the size of the pallet: ");
     while (palletSize > 100) {
-        alert("insert number smaller than 100")
+        alert("insert number smaller(max 100)")
        palletSize = prompt("enter the size of the pallet: ");
     }
     const totalBoxes = palletSize ** 2;
@@ -59,12 +67,8 @@ btn.addEventListener('click', () => {
             box.style.backgroundColor = colorChange();
         });
 
-        reset.addEventListener('click', () => {
-            for (let i = 0; i < totalBoxes; i++) {
-                if (box.style.backgroundColor !== 'black') {
-                    box.style.backgroundColor = 'black';
-                }
-            }
+        resetBtn.addEventListener('click', () => {
+            reset(totalBoxes, box);
         });    
         
     }
