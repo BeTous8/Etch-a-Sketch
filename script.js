@@ -56,7 +56,7 @@ btn.addEventListener('click', () => {
             
         });
         box.addEventListener('mousedown', () => {
-            box.style.backgroundColor = 'white';
+            box.style.backgroundColor = colorChange();
         });
 
         reset.addEventListener('click', () => {
